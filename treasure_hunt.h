@@ -1,12 +1,13 @@
-#ifndef TREASURE_HUNT_HEATHER
-#define TREASURE_HUNT_HEATHER
+#ifndef TREASURE_HUNT_H
+#define TREASURE_HUNT_H
 
-#define MAX_USERNAME_SIZE 100
-#define MAX_CLUETEXT_SIZE 100
+#define MAX_ID_SIZE 64
+#define MAX_USERNAME_SIZE 64
+#define MAX_CLUETEXT_SIZE 128
 
 typedef struct 
 {
-    int treasure_id;
+    char treasure_id[MAX_ID_SIZE];
     char user_name[MAX_USERNAME_SIZE];
     double latitude;
     double longitude;
@@ -14,5 +15,10 @@ typedef struct
     int value;
 }Treasure;
 
-void add_treasure(char *hunt_id);   
+void add_treasure(const char *hunt_id);
+void list_treasures(const char *hunt_id);
+void view_treasure(const char *hunt_id,const char *treasure_id);
+void remove_treasure(const char *hunt_id,const char * treasure_id);
+void remove_treasure_hunt(const char *hunt_id);
+
 #endif
